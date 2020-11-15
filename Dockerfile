@@ -27,4 +27,14 @@ RUN apt-get update && apt-get install -y \
     clang-format \
     clang-tidy \
     clang-tools \
-    googletest
+    cppcheck \
+    googletest \
+    doxygen \
+    graphviz \
+    python3 \
+    python3-pip \
+    wget \
+
+    # Istall Gcovr gcov data presentation tool
+    # https://github.com/gcovr/gcovr
+    RUN pip3 install gcovr
