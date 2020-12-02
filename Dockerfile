@@ -15,6 +15,8 @@ ENV DOCKER_CREATE_EXTRA="-e DISPLAY=unix$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-uni
 ENV DOCKER_START_EXTRA="xauth nlist $DISPLAY | sed -e 's/^..../ffff/' | xauth -f /tmp/.docker.xauth nmerge -"
 
 # Set timezone. It's required by lots of packages. 
+# It's also better than setting DEBIAN_FRINTEND=noninteractive since, in dev-environment
+# somtimes interactive tools are needed.
 ENV TZ=Europe/Warsaw
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
@@ -53,9 +55,6 @@ ARG GROUP_NAME=user
 RUN groupadd -g ${GROUP_ID} ${GROUP_NAME} &&\
     useradd -l -u ${USER_ID} -g ${GROUP_NAME} ${USER_NAME} &&\
     install -d -m 0755 -o ${USER_NAME} -g ${GROUP_NAME} /home/${USER_NAME}
-
-# Ensure apt is in non-interactive to avoid prompts
-ENV DEBIAN_FRONTEND=noninteractive
 
 # Normally you woldn't add a docer user to the sudo group since a docer should be 
 # a complete environment and adding anything in a runtime (apt get) is not a good idea. 
