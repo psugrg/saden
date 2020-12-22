@@ -20,7 +20,7 @@ docker image build \
 Run `docker run --rm -v "$HOME/.local/bin:/home/user/.local/bin" saden install.sh` to install development environment into the `~/.local/bin` folder.
 
 ## Project initialization
-Run `aden-create.sh <proj_name>` inside project folder. This will initialize environment for this project.
+Run `saden-create.sh <proj_name>` inside project folder. This will initialize environment for this project.
 
 ## More info
 For more information visit the [DDEN](https://hub.docker.com/repository/docker/psugrg/dden/general) project page.
