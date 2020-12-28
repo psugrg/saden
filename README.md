@@ -1,12 +1,19 @@
-# Sandbox Docker-based Development Environment 
-SADEN is a SAndbox Docker-based development ENvironment created to test and play with implementation of the [Docker based Development Environment](https://hub.docker.com/repository/docker/psugrg/dden/general).
+# Sandbox Docker-based Development Environment
 
-It contains example of X11 forwarding using `DOCKER_CREATE_EXTRA` and `DOCKER_START_EXTRA` variables processed by `DDEN`.
+Example, docker-based development environment for x86 platform.
+It's based on the [DDEN](https://hub.docker.com/repository/docker/psugrg/dden/general)
+infrastructure wchich means that it derives from DDEN and it expects to be
+derived by the [DUSET](https://github.com/psugrg/duset) in order to create
+an image with local user rights for installation.
+
+It contains example of X11 forwarding using `DOCKER_CREATE_EXTRA` and
+`DOCKER_START_EXTRA` variables processed by `DDEN`.
 
 ## Compilation
+
 Run
 
-```
+```bash
 docker image build \
 --build-arg USER_ID=$(id -u ${USER}) \
 --build-arg GROUP_ID=$(id -g ${USER}) \
@@ -16,11 +23,12 @@ docker image build \
 .
 ```
 
-## Installation 
-Run `docker run --rm -v "$HOME/.local/bin:/home/user/.local/bin" saden install.sh` to install development environment into the `~/.local/bin` folder.
+## Deployment
 
-## Project initialization
-Run `saden-create.sh <proj_name>` inside project folder. This will initialize environment for this project.
+Compiled image can be stored in `docker registry` or `docker hub` where it
+can be accessed by developers who want to install it via the DUSET image.
 
-## More info
-For more information visit the [DDEN](https://hub.docker.com/repository/docker/psugrg/dden/general) project page.
+## Installation
+
+Follow the instructions in DUSET in order to install this environment. Use
+`saden` as a name of the base image `<image-name>`.
