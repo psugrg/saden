@@ -14,13 +14,7 @@ It contains example of X11 forwarding using `DOCKER_CREATE_EXTRA` and
 Run
 
 ```bash
-docker image build \
---build-arg USER_ID=$(id -u ${USER}) \
---build-arg GROUP_ID=$(id -g ${USER}) \
---build-arg USER_NAME=${USER} \
---build-arg GROUP_NAME=${USER} \
--t saden \
-.
+docker image build -t saden .
 ```
 
 ## Deployment
