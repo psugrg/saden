@@ -6,9 +6,6 @@ infrastructure wchich means that it derives from DDEN and it expects to be
 derived by the [DUSET](https://github.com/psugrg/duset) in order to create
 an image with local user rights for installation.
 
-It contains example of X11 forwarding using `DOCKER_CREATE_EXTRA` and
-`DOCKER_START_EXTRA` variables processed by `DDEN`.
-
 ## Compilation
 
 Run
