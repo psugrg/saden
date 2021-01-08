@@ -33,3 +33,5 @@ RUN apt-get update && apt-get install -y \
 # https://github.com/gcovr/gcovr
 RUN pip3 install gcovr
 
+# Set shell variable
+ENV SHELL=/usr/bin/bash
